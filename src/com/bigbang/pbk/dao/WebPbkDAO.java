@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import com.bigbang.pbk.vo.WebPbkVO;
 
-import sun.plugin2.message.GetNameSpaceMessage;
 
 public class WebPbkDAO {
 
@@ -157,7 +156,7 @@ public class WebPbkDAO {
 		query.append("     , phone2 = ?					");	
 		query.append("     , phone3 = ?					");
 		query.append("     , group_num = ? AS gpnm		");
-		query.append(" WHERE id = ?						");
+		query.append(" WHERE num = ?					");
 		
 		try {
 			con = dbCon.getConnection();
@@ -257,7 +256,7 @@ public class WebPbkDAO {
 		}
 	}
 	
-	public void update(WebPbkVO person) {
+	public void updateLogin(WebPbkVO person) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		DBConnection dbCon = DBConnection.getInstance();
@@ -330,8 +329,8 @@ public class WebPbkDAO {
 		}
 		return person;
 	}
-
-	public WebPbkVO selectByNumPbk(String num) {
+	
+	public WebPbkVO selectByNum(String num) {
 		Connection con 			= null;
 		PreparedStatement pstmt = null;
 		ResultSet rs 			= null;
@@ -339,28 +338,19 @@ public class WebPbkDAO {
 		DBConnection dbCon		= DBConnection.getInstance();
 		StringBuilder query 	= new StringBuilder();
 		
-		query.append("UPDATE webpbk			");
-		query.append("   SET name = ?		");
-		query.append("     , pw = ?			");
-		query.append("     , phone1 = ?		");
-		query.append("     , phone2 = ?		");
-		query.append("     , phone3 = ?		");
-		query.append("     , gender = ?		");
-		query.append(" WHERE num = ?		");
+		query.append("SELECT *				");
+		query.append("  FROM webpbk_login	");
+		query.append(" WHERE num = ?			");
 		
 		try {
 			con = dbCon.getConnection();
 			pstmt = con.prepareStatement(query.toString());
-			pstmt.setString(1, );
-			pstmt.setString(1, num);
-			pstmt.setString(1, num);
-			pstmt.setString(1, num);
-			pstmt.setString(1, num);
 			pstmt.setString(1, num);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				person = new WebPbkVO();
 				person.setName(rs.getString("name"));
+				person.setPw(rs.getString("pw"));
 				person.setPhone1(rs.getString("phone1"));
 				person.setPhone2(rs.getString("phone2"));
 				person.setPhone3(rs.getString("phone3"));
@@ -380,6 +370,90 @@ public class WebPbkDAO {
 		}
 		return person;
 	}
+
+	public WebPbkVO updateByNumPbk(String num) {
+		Connection con 			= null;
+		PreparedStatement pstmt = null;
+		ResultSet rs 			= null;
+		DBConnection dbCon 		= DBConnection.getInstance();
+		WebPbkVO person 		= null;
+		StringBuilder query		= new StringBuilder();
+		
+		query.append("UPDATE webpbk						");
+		query.append("   SET name = ?					");
+		query.append("     , phone1 = ?					");
+		query.append("     , phone2 = ?					");	
+		query.append("     , phone3 = ?					");
+		query.append("     , group_num = ? 				");
+		query.append(" WHERE num = ?					");
+		
+		try {
+			con = dbCon.getConnection();
+			pstmt = con.prepareStatement(query.toString());
+			pstmt.setString(1, "name");
+			pstmt.setString(2, "phone1");
+			pstmt.setString(3, "phone2");
+			pstmt.setString(4, "phone3");
+			pstmt.setString(5, "gpnm");
+			pstmt.setString(6, "num");
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				person = new WebPbkVO();
+				
+				person.setName(rs.getString("name"));
+				person.setId(rs.getString("id"));
+				person.setPhone1(rs.getString("phone1"));
+				person.setPhone2(rs.getString("phone2"));
+				person.setPhone3(rs.getString("phone3"));
+				person.setGpnm(rs.getString("gpnm"));
+				person.setNum(rs.getString("num"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) {
+					rs.close();
+				}
+				dbCon.close(con, pstmt);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return person;
+	}
+
+	public void deletePbk(String num) {
+		Connection con 			= null;
+		PreparedStatement pstmt = null;
+		ResultSet rs 			= null;
+		DBConnection dbCon 		= DBConnection.getInstance();
+		WebPbkVO person 		= null;
+		StringBuilder query		= new StringBuilder();
+		
+		query.append("DELETE FROM webpbk	");
+		query.append(" WHERE num = ?		");
+		
+		try {
+			con = dbCon.getConnection();
+			pstmt = con.prepareStatement(query.toString());
+			pstmt.setString(1, "num");
+			rs = pstmt.executeQuery();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) {
+					rs.close();
+				}
+				dbCon.close(con, pstmt);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	
 }
 
 

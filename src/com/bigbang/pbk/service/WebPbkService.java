@@ -27,9 +27,9 @@ public class WebPbkService {
 	}
 	
 	
-	public WebPbkVO updatePbk(WebPbkVO person) {
+	public WebPbkVO updateLogin(WebPbkVO person) {
 		WebPbkDAO wDao = new WebPbkDAO();
-	    wDao.update(person);
+	    wDao.updateLogin(person);
 		
 		return person;
 	}
@@ -46,7 +46,7 @@ public class WebPbkService {
 	
 	public void update(WebPbkVO person) {
 		WebPbkDAO wDao = new WebPbkDAO();
-		wDao.update(person);
+		wDao.updateLogin(person);
 	}
 	
 	public WebPbkVO selectById(String id) {
@@ -57,20 +57,29 @@ public class WebPbkService {
 		return person;
 	}
 	
-	public WebPbkVO selectByNumPbk(String num) {
+	public WebPbkVO selectByNum(String num) {
 		WebPbkVO person = null;
 		WebPbkDAO wDao = new WebPbkDAO();
-		person = wDao.selectByNumPbk(num);
+		wDao.selectByNum(num);
+		
+		return person;
+	}
+	
+	public WebPbkVO updateByNumPbk(String num) {
+		WebPbkVO person = null;
+		WebPbkDAO wDao = new WebPbkDAO();
+		wDao.updateByNumPbk(num);
 		
 		return person;
 	}
 	
 	
-//	public void updateLogin(WebPbkVO person) {
-//		WebPbkDAO wDao = new WebPbkDAO();
-//		wDao.updateLogin(person);
-//		
-//	}
+	public void deletePbk(String num) {
+		WebPbkDAO wDao = new WebPbkDAO();
+		wDao.deletePbk(num);
+	}
+	
+	
 
 	
 }

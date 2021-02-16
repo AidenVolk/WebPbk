@@ -20,17 +20,17 @@
 	- <input type="text" name="phone2" size="10" value="${person.phone2 }">
 	- <input type="text" name="phone3" size="10" value="${person.phone3 }"><br/>
 	<c:if test="${person.gpnm =='가족' }">
-		성별: <input type="radio" name="gpnm" value="1" checked="checked">가족
+		그룹: <input type="radio" name="gpnm" value="1" checked="checked">가족
 			 <input type="radio" name="gpnm" value="2">친구
 			 <input type="radio" name="gpnm" value="3">기타
 	</c:if>
 	<c:if test="${person.gpnm =='친구' }">
-		성별: <input type="radio" name="gpnm" value="1" >가족
+		그룹: <input type="radio" name="gpnm" value="1" >가족
 			 <input type="radio" name="gpnm" value="2" checked="checked">친구
 			 <input type="radio" name="gpnm" value="3">기타
 	</c:if>
 	<c:if test="${person.gpnm =='기타' }">
-		성별: <input type="radio" name="gpnm" value="1">가족
+		그룹: <input type="radio" name="gpnm" value="1">가족
 			 <input type="radio" name="gpnm" value="2">친구
 			 <input type="radio" name="gpnm" value="3" checked="checked">기타
 	</c:if>

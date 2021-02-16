@@ -11,7 +11,7 @@
 <h1>회원관리 페이지</h1>
 <h3>${name }님의 전화번호부</h3>
 <a href="LogoutServlet">로그아웃</a><br/><br/>
-<a href="UpdateServlet">나의 정보수정</a><br/><br/>
+<a href="UpdateLoginServlet">나의 정보수정</a><br/><br/>
 <a href="InsertServlet">연락처 추가</a><br/><br/>
 	<input type="text" name="selectByName" size="10">
 	<input type="submit" value="검색"><br/><br/>
