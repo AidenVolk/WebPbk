@@ -44,10 +44,10 @@ public class WebPbkService {
 		wDao.insertPbk(person);
 	}
 	
-	public void update(WebPbkVO person) {
-		WebPbkDAO wDao = new WebPbkDAO();
-		wDao.updateLogin(person);
-	}
+//	public void update(WebPbkVO person) {
+//		WebPbkDAO wDao = new WebPbkDAO();
+//		wDao.updateLogin(person);
+//	}
 	
 	public WebPbkVO selectById(String id) {
 		WebPbkVO person = null;
@@ -65,12 +65,10 @@ public class WebPbkService {
 		return person;
 	}
 	
-	public WebPbkVO updateByNumPbk(String num) {
-		WebPbkVO person = null;
+	public void updatePbk(WebPbkVO person) {
 		WebPbkDAO wDao = new WebPbkDAO();
-		wDao.updateByNumPbk(num);
+		wDao.updatePbk(person);
 		
-		return person;
 	}
 	
 	

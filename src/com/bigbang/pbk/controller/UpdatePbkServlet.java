@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.bigbang.pbk.service.WebPbkService;
 import com.bigbang.pbk.vo.WebPbkVO;
 
-@WebServlet("/UpdateServlet")
+@WebServlet("/UpdatePbkServlet")
 public class UpdatePbkServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -23,7 +23,8 @@ public class UpdatePbkServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String num = (String)session.getAttribute("num");
+		String num = request.getParameter("num");
+		session.setAttribute("num",num);
 		
 		if(num.equals("")) {
 			response.sendRedirect("Mainservlet");
@@ -56,7 +57,7 @@ public class UpdatePbkServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			String num = (String)session.getAttribute("num");
 			WebPbkService wService = new WebPbkService();
-			WebPbkVO check = wService.updateByNumPbk(num);
+			WebPbkVO check = wService.selectByNum(num);
 			
 			if(check != null) {
 				WebPbkVO person = new WebPbkVO();
@@ -68,7 +69,7 @@ public class UpdatePbkServlet extends HttpServlet {
 				person.setPhone3(phone3);
 				person.setGpnm(gpnm);
 
-				wService.update(person);
+				wService.updatePbk(person);
 				
 				response.sendRedirect("MainServlet");
 			}else {

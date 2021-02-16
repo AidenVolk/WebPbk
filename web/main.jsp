@@ -17,7 +17,7 @@
 	<input type="submit" value="검색"><br/><br/>
 <table border="1">
 	<tr>
-		<th>번호</th><th>이름</th><th>연락처</th><th>그룹명</th><th>수정</th><th>삭제</th>
+		<th>고유번호</th><th>이름</th><th>연락처</th><th>그룹명</th><th>수정</th><th>삭제</th>
 	</tr>
 	<c:forEach items="${login }" var="person">
 		<tr>
@@ -29,10 +29,6 @@
 			<td><a href="DeletePbkServlet?num=${person.num }">삭제</a></td>
 		</tr>
 	</c:forEach>
-
-
-
-
 </table>
 </body>
 </html>
