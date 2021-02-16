@@ -42,6 +42,7 @@ public class UpdatePbkServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String name		 = request.getParameter("name");
+		String pw		 = request.getParameter("pw");
 		String phone1	 = request.getParameter("phone1");
 		String phone2 	 = request.getParameter("phone2");
 		String phone3	 = request.getParameter("phone3");
@@ -54,7 +55,7 @@ public class UpdatePbkServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			String id = (String)session.getAttribute("id");
 			WebPbkService wService = new WebPbkService();
-			WebPbkVO check = wService.login(id);
+			WebPbkVO check = wService.login(id,pw);
 			
 			if(check != null) {
 				WebPbkVO person = new WebPbkVO();
