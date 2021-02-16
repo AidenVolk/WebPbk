@@ -57,6 +57,14 @@ public class WebPbkService {
 		return person;
 	}
 	
+	public WebPbkVO selectByNumPbk(String num) {
+		WebPbkVO person = null;
+		WebPbkDAO wDao = new WebPbkDAO();
+		person = wDao.selectByNumPbk(num);
+		
+		return person;
+	}
+	
 	
 //	public void updateLogin(WebPbkVO person) {
 //		WebPbkDAO wDao = new WebPbkDAO();

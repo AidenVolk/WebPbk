@@ -23,9 +23,9 @@ public class InsertServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
-		request.setAttribute("msgName", "*이름 입력 필수");
-		request.setAttribute("msgNumber", "*전화번호 입력 필수");
-		request.setAttribute("msgGroup", "*그룹 선택 필수");
+		request.setAttribute("msgName", "* 이름 입력 필수");
+		request.setAttribute("msgNumber", "* 전화번호 입력 필수");
+		request.setAttribute("msgGroup", "* 그룹 선택 필수");
 		RequestDispatcher disp = request.getRequestDispatcher("insertForm.jsp");
 		disp.forward(request,response);
 	}

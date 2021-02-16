@@ -23,14 +23,15 @@ public class UpdatePbkServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("id");
+		String num = (String)session.getAttribute("num");
 		
-		if(id.equals("")) {
+		
+		if(num.equals("")) {
 			response.sendRedirect("Mainservlet");
 		}else {
 			WebPbkService wService = new WebPbkService();
-			WebPbkVO person = wService.selectById(id);
-	
+			WebPbkVO person = wService.selectByNumPbk(num);
+					
 			request.setAttribute("person", person);
 			
 			RequestDispatcher disp = request.getRequestDispatcher("updatePbkForm.jsp");
@@ -46,7 +47,7 @@ public class UpdatePbkServlet extends HttpServlet {
 		String phone1	 = request.getParameter("phone1");
 		String phone2 	 = request.getParameter("phone2");
 		String phone3	 = request.getParameter("phone3");
-		String gpnm		 = request.getParameter("gpnm");
+		String gpnm		 = request.getParameter("gender");
 		
 		if(name.equals("") || phone1.equals("") || phone2.equals("")
 		                   || phone3.equals("") || gpnm.equals("")) {
@@ -62,6 +63,7 @@ public class UpdatePbkServlet extends HttpServlet {
 				
 				person.setName(name);
 				person.setId(id);
+				person.setPw(pw);
 				person.setPhone1(phone1);
 				person.setPhone2(phone2);
 				person.setPhone3(phone3);

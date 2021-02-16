@@ -10,6 +10,7 @@
 <body>
 	<form action="UpdatePbkServlet" method="post">
 	이름: <input type="text" name="name" size="10" value="${person.name }"><br/>
+	아이디: ${id }<br/>
 	비밀번호:  <input type="password" name="pw" size="10"><br/>
 	전화번호:
 		<select name="phone1">

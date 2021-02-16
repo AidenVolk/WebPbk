@@ -17,15 +17,16 @@
 	<input type="submit" value="검색"><br/><br/>
 <table border="1">
 	<tr>
-		<th>이름</th><th>연락처</th><th>그룹명</th><th>수정</th><th>삭제</th>
+		<th>번호</th><th>이름</th><th>연락처</th><th>그룹명</th><th>수정</th><th>삭제</th>
 	</tr>
 	<c:forEach items="${login }" var="person">
 		<tr>
+			<td>${person.num }</td>
 			<td>${person.name }</td>
 			<td>${person.phone1} - ${person.phone2 } - ${person.phone3 }</td>
 			<td>${person.gpnm }</td>
-			<td><a href="UpdatePbkServlet?id=${person.id }">수정</a></td>
-			<td><a href="DeletePbkServlet?id=${person.id }">삭제</a></td>
+			<td><a href="UpdatePbkServlet?num=${person.num }">수정</a></td>
+			<td><a href="DeletePbkServlet?num=${person.num }">삭제</a></td>
 		</tr>
 	</c:forEach>
 

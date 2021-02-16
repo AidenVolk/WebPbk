@@ -1,6 +1,7 @@
 package com.bigbang.pbk.vo;
 
 public class WebPbkVO {
+	String num		= null;
 	String name 	= null;
 	String id 		= null;
 	String pw 		= null;
@@ -12,6 +13,13 @@ public class WebPbkVO {
 	
 	
 	
+
+	public String getNum() {
+		return num;
+	}
+	public void setNum(String num) {
+		this.num = num;
+	}
 	public String getName() {
 		return name;
 	}

@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 import com.bigbang.pbk.vo.WebPbkVO;
 
+import sun.plugin2.message.GetNameSpaceMessage;
+
 public class WebPbkDAO {
 
 	public WebPbkVO login(String id, String pw) {
@@ -104,7 +106,8 @@ public class WebPbkDAO {
 		ArrayList<WebPbkVO> people 	= new ArrayList<WebPbkVO>();
 		StringBuilder query 		= new StringBuilder();
 		
-		query.append("SELECT p.name	 					");
+		query.append("SELECT p.num	 					");
+		query.append("     , p.name 					");
 		query.append("     , p.phone1 					");
 		query.append("     , p.phone2 					");
 		query.append("     , p.phone3 					");
@@ -123,6 +126,7 @@ public class WebPbkDAO {
 			
 			while(rs.next()) {
 				WebPbkVO person = new WebPbkVO();
+				person.setNum(rs.getString("num"));
 				person.setName(rs.getString("name"));
 				person.setPhone1(rs.getString("phone1"));
 				person.setPhone2(rs.getString("phone2"));
@@ -147,13 +151,13 @@ public class WebPbkDAO {
 		WebPbkVO person 		= null;
 		StringBuilder query		= new StringBuilder();
 		
-		query.append("UPDATE webpbk				");
-		query.append("   SET name = ?			");
-		query.append("     , phone1 = ?			");
-		query.append("     , phone2 = ?			");	
-		query.append("     , phone3 = ?			");
-		query.append("     , group_num = ?		");
-		query.append(" WHERE id = ?				");
+		query.append("UPDATE webpbk						");
+		query.append("   SET name = ?					");
+		query.append("     , phone1 = ?					");
+		query.append("     , phone2 = ?					");	
+		query.append("     , phone3 = ?					");
+		query.append("     , group_num = ? AS gpnm		");
+		query.append(" WHERE id = ?						");
 		
 		try {
 			con = dbCon.getConnection();
@@ -170,11 +174,10 @@ public class WebPbkDAO {
 				
 				person.setName(rs.getString("name"));
 				person.setId(rs.getString("id"));
-				person.setPw(rs.getString("pw"));
 				person.setPhone1(rs.getString("phone1"));
 				person.setPhone2(rs.getString("phone2"));
 				person.setPhone3(rs.getString("phone3"));
-				person.setGender(rs.getString("gender"));
+				person.setGpnm(rs.getString("gpnm"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -222,18 +225,20 @@ public class WebPbkDAO {
 		DBConnection dbCon 		= DBConnection.getInstance();
 		StringBuilder query 	= new StringBuilder();
 		
-		query.append("INSERT INTO webpbk (id			");
-		query.append("					, name			");
-		query.append("					, phone1		");
-		query.append("		   		    , phone2		");
-		query.append("				    , phone3		");
-		query.append("				    , group_num) 	");
-		query.append("	   VALUES (?					");
-		query.append("  		,  ?					");
-		query.append("  	 	,  ?					");
-		query.append("  	 	,  ?					");
-		query.append("  	  	,  ?					");
-		query.append("  	  	,  ?)					");
+		query.append("INSERT INTO webpbk (id					");
+		query.append("					, num					");
+		query.append("					, name					");
+		query.append("					, phone1				");
+		query.append("		   		    , phone2				");
+		query.append("				    , phone3				");
+		query.append("				    , group_num)		  	");
+		query.append("	   VALUES (?							");
+		query.append("  		,  seq.NEXTVAL					");
+		query.append("  		,  ?							");
+		query.append("  	 	,  ?							");
+		query.append("  	 	,  ?							");
+		query.append("  	  	,  ?							");
+		query.append("  	  	,  ?)							");
 		
 		try {
 			con = dbCon.getConnection();
@@ -284,6 +289,7 @@ public class WebPbkDAO {
 			dbCon.close(con, pstmt);
 		}
 	}
+
 	public WebPbkVO selectById(String id) {
 		Connection con 			= null;
 		PreparedStatement pstmt = null;
@@ -309,6 +315,56 @@ public class WebPbkDAO {
 				person.setPhone2(rs.getString("phone2"));
 				person.setPhone3(rs.getString("phone3"));
 				person.setGender(rs.getString("gender"));
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) {
+					rs.close();
+				}
+				dbCon.close(con, pstmt);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return person;
+	}
+
+	public WebPbkVO selectByNumPbk(String num) {
+		Connection con 			= null;
+		PreparedStatement pstmt = null;
+		ResultSet rs 			= null;
+		WebPbkVO person			= null;
+		DBConnection dbCon		= DBConnection.getInstance();
+		StringBuilder query 	= new StringBuilder();
+		
+		query.append("UPDATE webpbk			");
+		query.append("   SET name = ?		");
+		query.append("     , pw = ?			");
+		query.append("     , phone1 = ?		");
+		query.append("     , phone2 = ?		");
+		query.append("     , phone3 = ?		");
+		query.append("     , gender = ?		");
+		query.append(" WHERE num = ?		");
+		
+		try {
+			con = dbCon.getConnection();
+			pstmt = con.prepareStatement(query.toString());
+			pstmt.setString(1, );
+			pstmt.setString(1, num);
+			pstmt.setString(1, num);
+			pstmt.setString(1, num);
+			pstmt.setString(1, num);
+			pstmt.setString(1, num);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				person = new WebPbkVO();
+				person.setName(rs.getString("name"));
+				person.setPhone1(rs.getString("phone1"));
+				person.setPhone2(rs.getString("phone2"));
+				person.setPhone3(rs.getString("phone3"));
+				person.setGpnm(rs.getString("gpnm"));
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
