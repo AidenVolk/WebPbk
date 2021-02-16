@@ -195,7 +195,7 @@ public class WebPbkDAO {
 		Connection con 			= null;
 		PreparedStatement pstmt = null;
 		DBConnection dbCon 		= DBConnection.getInstance();
-		String query 			= "INSERT INTO webpbk_login VALUES(?,?,?,?,?,?,?)";
+		String query 			= "INSERT INTO WebPbk_login VALUES(?,?,?,?,?,?,?)";
 		
 		try {
 			con = dbCon.getConnection();
