@@ -31,7 +31,6 @@ public class UpdatePbkServlet extends HttpServlet {
 		}else {
 			WebPbkService wService = new WebPbkService();
 			WebPbkVO person = wService.selectByNum(num);
-
 			request.setAttribute("person", person);
 			
 			RequestDispatcher disp = request.getRequestDispatcher("updatePbkForm.jsp");
@@ -48,6 +47,7 @@ public class UpdatePbkServlet extends HttpServlet {
 		String phone2 	 = request.getParameter("phone2");
 		String phone3	 = request.getParameter("phone3");
 		String gpnm	 	 = request.getParameter("gpnm");
+		String num 		 = request.getParameter("num");
 		
 		if(name.equals("") || phone1.equals("") || 
 		   phone2.equals("") || phone3.equals("") ||
@@ -55,20 +55,31 @@ public class UpdatePbkServlet extends HttpServlet {
 			doGet(request,response);
 		}else {
 			HttpSession session = request.getSession();
-			String num = (String)session.getAttribute("num");
+			String id = (String) session.getAttribute("id");
+			String pw = (String) session.getAttribute("pw");
+			
 			WebPbkService wService = new WebPbkService();
-			WebPbkVO check = wService.selectByNum(num);
+			WebPbkVO check = wService.login(id, pw);
+			
 			
 			if(check != null) {
 				WebPbkVO person = new WebPbkVO();
 				
 				person.setName(name);
-				person.setNum(num);
 				person.setPhone1(phone1);
 				person.setPhone2(phone2);
 				person.setPhone3(phone3);
 				person.setGpnm(gpnm);
+				person.setNum(num);
 
+				System.out.println(person.getName());
+				System.out.println(person.getPhone1());
+				System.out.println(person.getPhone2());
+				System.out.println(person.getPhone3());
+				System.out.println(person.getGpnm());
+				System.out.println(person.getNum());
+				
+				
 				wService.updatePbk(person);
 				
 				response.sendRedirect("MainServlet");

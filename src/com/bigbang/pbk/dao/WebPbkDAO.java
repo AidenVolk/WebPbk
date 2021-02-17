@@ -193,7 +193,7 @@ public class WebPbkDAO {
 //		return person;
 //	}
 
-	public void insert(WebPbkVO person) {
+	public void insertLogin(WebPbkVO person) {
 		Connection con 			= null;
 		PreparedStatement pstmt = null;
 		DBConnection dbCon 		= DBConnection.getInstance();
@@ -339,23 +339,13 @@ public class WebPbkDAO {
 		DBConnection dbCon		= DBConnection.getInstance();
 		StringBuilder query 	= new StringBuilder();
 		
-		query.append("SELECT p.name 					");
-		query.append("     , p.phone1 					");
-		query.append("     , p.phone2 					");
-		query.append("     , p.phone3 					");
-		query.append("     , g.group_name AS gpnm		");
-		query.append("  FROM webpbk p					");
-		query.append("     , webpbk_group g			 	");
-		query.append(" WHERE p.group_num = g.group_num	");
-		query.append("   AND num = ?					");
-		
-//		query.append("SELECT name				");
-//		query.append("	   , phone1				");
-//		query.append("	   , phone2				");
-//		query.append("	   , phone3				");
-//		query.append("	   , group_num AS gpnm	");
-//		query.append("  FROM webpbk				");
-//		query.append(" WHERE num = ?			");
+		query.append("SELECT name 					");
+		query.append("     , phone1 				");
+		query.append("     , phone2 				");
+		query.append("     , phone3 				");
+		query.append("     , group_num AS gpnm		");
+		query.append("  FROM webpbk 				");
+		query.append(" WHERE num = ?				");
 		
 		try {
 			con = dbCon.getConnection();
@@ -403,24 +393,13 @@ public class WebPbkDAO {
 		try {
 			con = dbCon.getConnection();
 			pstmt = con.prepareStatement(query.toString());
-			pstmt.setString(1, "name");
-			pstmt.setString(2, "phone1");
-			pstmt.setString(3, "phone2");
-			pstmt.setString(4, "phone3");
-			pstmt.setString(5, "gpnm");
-			pstmt.setString(6, "num");
+			pstmt.setString(1, person.getName());
+			pstmt.setString(2, person.getPhone1());
+			pstmt.setString(3, person.getPhone2());
+			pstmt.setString(4, person.getPhone3());
+			pstmt.setString(5, person.getGpnm());
+			pstmt.setString(6, person.getNum());
 			pstmt.executeQuery();
-//			if(rs.next()) {
-//				person = new WebPbkVO();
-//				
-//				person.setName(rs.getString("name"));
-//				person.setId(rs.getString("id"));
-//				person.setPhone1(rs.getString("phone1"));
-//				person.setPhone2(rs.getString("phone2"));
-//				person.setPhone3(rs.getString("phone3"));
-//				person.setGpnm(rs.getString("gpnm"));
-//				person.setNum(rs.getString("num"));
-//			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -466,37 +445,3 @@ public class WebPbkDAO {
 
 	
 }
-
-
-//public void updateLogin(WebPbkVO person) {
-//Connection con 			= null;
-//PreparedStatement pstmt = null;
-//DBConnection dbCon 		= DBConnection.getInstance();
-//StringBuilder query 	= new StringBuilder();
-//
-//query.append("UPDATE webpbk_login	");
-//query.append("   SET name = ?		");
-//query.append("     , pw = ?			");
-//query.append("     , phone1 = ?		");
-//query.append("     , phone2 = ?		");
-//query.append("     , phone3 = ?		");
-//query.append("     , gender = ?		");
-//query.append(" WHERE id = ?			");
-//
-//try {
-//	con = dbCon.getConnection();
-//	pstmt = con.prepareStatement(query.toString());
-//	pstmt.setString(1, person.getName());
-//	pstmt.setString(2, person.getPw());
-//	pstmt.setString(3, person.getPhone1());
-//	pstmt.setString(4, person.getPhone2());
-//	pstmt.setString(5, person.getPhone3());
-//	pstmt.setString(6, person.getGender());
-//	pstmt.setString(7, person.getId());
-//	pstmt.executeQuery();
-//}catch(Exception e) {
-//	e.printStackTrace();
-//}finally {
-//	dbCon.close(con, pstmt);
-//}
-//}

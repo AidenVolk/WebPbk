@@ -48,7 +48,7 @@ public class JoinServlet extends HttpServlet {
 			doGet(request,response);
 		}else {
 			WebPbkService wService = new WebPbkService();
-			wService.insert(person);
+			wService.insertLogin(person);
 			response.sendRedirect("loginForm.jsp");
 		}
 		

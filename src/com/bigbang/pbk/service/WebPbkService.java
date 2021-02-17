@@ -28,15 +28,16 @@ public class WebPbkService {
 	
 	
 	public WebPbkVO updateLogin(WebPbkVO person) {
+		
 		WebPbkDAO wDao = new WebPbkDAO();
 	    wDao.updateLogin(person);
 		
 		return person;
 	}
 	
-	public void insert(WebPbkVO person) {
+	public void insertLogin(WebPbkVO person) {
 		WebPbkDAO wDao = new WebPbkDAO();
-		wDao.insert(person);
+		wDao.insertLogin(person);
 	}
 	
 	public void insertPbk(WebPbkVO person) {
@@ -60,7 +61,7 @@ public class WebPbkService {
 	public WebPbkVO selectByNum(String num) {
 		WebPbkVO person = null;
 		WebPbkDAO wDao = new WebPbkDAO();
-		wDao.selectByNum(num);
+		person = wDao.selectByNum(num);
 		
 		return person;
 	}
