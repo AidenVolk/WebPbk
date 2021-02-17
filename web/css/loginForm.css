@@ -1,11 +1,32 @@
 @charset "UTF-8";
 
-body{
-	
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+ body{
+	min-height: 100vh;
+	overflow: hidden;
+	margin: 0px;
+    background: #000; 
+}
+h2{
+	position: absolute;
+	top: 40%;
+	left: 50%;
+ 	color: #fff5;
+	/* color: #0f0; */
+	text-transform: upppercase;
+	font-size: 7em;
+	transform: translateX(-50%);
+	font-weight: 900;
+}
+loginbackground{
+	z-index: 100
+}
+loginform{
+	z-index: 200
 }
 
-
-.btn{
-	btn-success
-}
-.
