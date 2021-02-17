@@ -13,32 +13,37 @@ import javax.servlet.http.HttpSession;
 import com.bigbang.pbk.service.WebPbkService;
 import com.bigbang.pbk.vo.WebPbkVO;
 
-@WebServlet("/DeletePbkServlet")
-public class DeletePbkServlet extends HttpServlet {
+@WebServlet("/ShowByName")
+public class ShowByName extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public DeletePbkServlet() {
+    public ShowByName() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String num = request.getParameter("num");
-		session.setAttribute("num", num);
+		String id = (String)session.getAttribute("id");
+		String name = request.getParameter("showByName");
 		
-		if(num.equals("")) {
-			response.sendRedirect("Mainservlet");
+		System.out.println(name);
+		
+		if(id == null) {
+			response.sendRedirect("loginForm.jsp");
 		}else {
 			WebPbkService wService = new WebPbkService();
-			wService.deletePbk(num);
+			WebPbkVO person = wService.showByName(name);
 			
-			RequestDispatcher disp = request.getRequestDispatcher("MainServlet");
+			request.setAttribute("person", person);
+			
+			RequestDispatcher disp = request.getRequestDispatcher("showByName.jsp");
 			disp.forward(request, response);
-		}	
+		}
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		doGet(request, response);
 	}
 
 }

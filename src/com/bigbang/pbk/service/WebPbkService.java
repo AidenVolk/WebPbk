@@ -61,6 +61,7 @@ public class WebPbkService {
 	public WebPbkVO selectByNum(String num) {
 		WebPbkVO person = null;
 		WebPbkDAO wDao = new WebPbkDAO();
+		
 		person = wDao.selectByNum(num);
 		
 		return person;
@@ -76,6 +77,16 @@ public class WebPbkService {
 	public void deletePbk(String num) {
 		WebPbkDAO wDao = new WebPbkDAO();
 		wDao.deletePbk(num);
+	}
+
+
+	public WebPbkVO showByName(String name) {
+		WebPbkVO person = null;
+		WebPbkDAO wDao = new WebPbkDAO();
+		
+		person = wDao.showByName(name);
+		
+		return person;
 	}
 	
 	

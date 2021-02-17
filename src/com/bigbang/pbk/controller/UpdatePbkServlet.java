@@ -72,14 +72,6 @@ public class UpdatePbkServlet extends HttpServlet {
 				person.setGpnm(gpnm);
 				person.setNum(num);
 
-				System.out.println(person.getName());
-				System.out.println(person.getPhone1());
-				System.out.println(person.getPhone2());
-				System.out.println(person.getPhone3());
-				System.out.println(person.getGpnm());
-				System.out.println(person.getNum());
-				
-				
 				wService.updatePbk(person);
 				
 				response.sendRedirect("MainServlet");
