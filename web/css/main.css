@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+.mainbackground{
+	position: absolute;
+	z-index: 100;
+}
+h1{
+	position: absolute;
+	top: 20%;
+	left: 46.5%;
+ 	color: #fff5;
+	/* color: #0f0; */
+	text-transform: upppercase;
+	font-size: 5em;
+	transform: translateX(-50%);
+	font-weight: 800;
+	z-index: 150;
+	margin-left: auto;
+	margin-right: auto
+}
+h3{
+	position: absolute;
+	top: 30%;
+	left: 35%;
+	color: #00ff00;
+	font-size: 3em;
+	font-weight: 900;
+	z-index: 150;
+}
+.logout{
+	position: absolute;
+	top: 40%;
+	left: 46%;
+	color: #00ff00;
+	z-index: 150;
+}
+.update{
+	position: absolute;
+	top: 43%;
+	left: 45%;
+	color: #00ff00;
+	z-index: 150;
+}
+.add{
+	position: absolute;
+	top: 46%;
+	left: 45.5%;
+	color: #00ff00;
+	z-index: 150;
+}
+a{
+	color: #00ff00;
+}
+.table th{
+  	width: 150px;
+  	padding: 10px;
+ 	font-weight: bold;
+  	vertical-align: top;
+  	border: 3px solid #00ff00;
+  	text-align: center;
+ 	vertical-align: middle;
+ 	font-weight: 900;
+}
+.table td{
+	width: 350px;
+  	padding: 10px;
+  	vertical-align: top;
+  	border: 1px solid #00ff00;
+  	text-align: center;
+  	vertical-align: middle; 
+}
+.tableform{
+	position: absolute;
+	top: 55%;
+	left: 5%;
+	z-index: 150;
+	color: #00ff00;
+	
+}
+
+input::-ms-input-placeholder { color: #00Ff00; }
+input::-webkit-input-placeholder { color: #00ff00; }
+input::-moz-placeholder { color: #00ff00; }
+
+input{
+	position: absolute;
+	top: 50%;
+	left: 43%;
+	z-index: 150;
+	background-color: transparent;
+	color: #00ff00;
+	border: none;
+}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
