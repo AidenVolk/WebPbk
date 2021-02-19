@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/loginForm.css">
 
-<title>연락처 프로그램</title>
+<title>YJ's PBK</title>
 </head>
 <body>
 <h2>YJ's PBK</h2>

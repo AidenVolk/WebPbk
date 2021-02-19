@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+body{
+	background: black;
+}
 .mainbackground{
 	position: absolute;
 	z-index: 100;

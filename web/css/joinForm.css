@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+body{
+	background: black;
+}
+joinformbackground{
+	position: absolute;
+	z-index: 100;
+}
+
+form{
+	position: absolute;
+	background-color: transparent;
+	z-index: 150;
+	color: #00ff00;
+	top: 40%;
+	left: 40%;
+}
+
+input::-ms-input-placeholder { color: #00Ff00; }
+input::-webkit-input-placeholder { color: #00ff00; }
+input::-moz-placeholder { color: #00ff00; }
+
+input{
+	background-color: transparent;
+	text-align: center;
+}
+select{
+	background-color: transparent;
+}
+input[type='radio'],
+input[type='radio']:checked {
+  appearance: none	;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 100%;
+  margin-right: 0.1rem;
+  background-color: #00ff00;
+}
+
+
+input[type='radio']:checked {
+  background-color: #fff5;
+}
+button {
+	position: absolute;
+	top: 110%;
+	left: 40%;
+	background-color: transparent;
+}

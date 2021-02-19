@@ -1,0 +1,47 @@
+@charset "UTF-8";
+body{
+	background: black;
+}
+
+.insertformbackground{
+	position: absolute;
+	z-index: 100;
+}
+form{
+	position: absolute;
+	z-index: 150;
+	background-color: transparent;
+	color: #00ff00;
+	top: 45%;
+	left: 40%;
+}
+input[type='radio'],
+input[type='radio']:checked {
+  appearance: none	;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 100%;
+  margin-right: 0.1rem;
+  background-color: #00ff00;
+}
+
+input::-ms-input-placeholder { color: #00Ff00; }
+input::-webkit-input-placeholder { color: #00ff00; }
+input::-moz-placeholder { color: #00ff00; }
+
+input{
+	color: #00ff00;
+	text-align: center;
+	background-color: transparent;
+}
+select{
+	background-color: transparent;
+	text-align: center;
+}
+
+button{
+	background-color: transparent;
+	position: absolute;
+	top: 110%;
+	left: 40%;
+}

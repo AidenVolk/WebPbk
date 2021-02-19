@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/updateLoginForm.css">
 
-<title>연락처 프로그램</title>
+<title>YJ's PBK</title>
 </head>
 <body>
 <div class="updateloginbackground">
@@ -34,7 +34,7 @@
 		
 		// Characters
 		var charSet;
-		charSet = '0101010101010101010101010101'; // Hex
+		charSet = '회원정보 수정'; // Hex
 		charSet = charSet.split(''); // Convert string to array
 		
 		// One drop per column, row set randomly
@@ -84,12 +84,12 @@
 	이름: <input type="text" name="name" size="10" value="${person.name }"><br/>
 	</div>
 	<div class="id">
-	아이디: ${person.id }<br/>
+	소유자 아이디: ${person.id }<br/>
 	</div>
 	<div class="pw">
-	비밀번호:  <input type="password" name="pw" size="10"><br/>
+	비밀번호:  <input type="password" name="pw" placeholder="새 비밀번호 입력란" size="15"><br/>
 	</div>
-	<div class="radio">
+	<div class="select">
 	전화번호:
 		<select name="phone1">
 			<option value="010">010</option>
@@ -100,7 +100,7 @@
 		- <input type="text" name="phone2" size="10" value="${person.phone2 }">
 		- <input type="text" name="phone3" size="10" value="${person.phone3 }"><br/>
 	</div>
-	<div>
+	<div class="r">
 		<c:if test="${person.gender =='남자' }">
 			성별: <input type="radio" name="gender" value="남자" checked="checked">남
 				 <input type="radio" name="gender" value="여자">여

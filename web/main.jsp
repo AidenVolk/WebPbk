@@ -11,32 +11,32 @@
 <title>연락처 프로그램</title>
 <script>
 function myFunction() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
+	  // Declare variables
+	  var input, filter, table, tr, td, i, txtValue;
+	  input = document.getElementById("myInput");
+	  filter = input.value.toUpperCase();
+	  table = document.getElementById("myTable");
+	  tr = table.getElementsByTagName("tr");
 
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
-
+	  // Loop through all table rows, and hide those who don't match the search query
+	  for (i = 0; i < tr.length; i++) {
+	    td = tr[i].getElementsByTagName("td")[0];
+	    if (td) {
+	      txtValue = td.textContent || td.innerText;
+	      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+	        tr[i].style.display = "";
+	      } else {
+	        tr[i].style.display = "none";
+	      }
+	    }
+	  }
+	}
 </script>
 
 </head>
 <body>
-<div class="loginbackground">
+	
+	<div class="loginbackground">
 	<span>
 		<canvas id='cvs'></canvas>
 		
@@ -59,7 +59,7 @@ function myFunction() {
 		
 		// Characters
 		var charSet;
-		charSet = '0101010101010101010101010101'; // Hex
+		charSet = '메인'; // Hex
 		charSet = charSet.split(''); // Convert string to array
 		
 		// One drop per column, row set randomly
@@ -103,6 +103,7 @@ function myFunction() {
 		</script>
 	</span>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <h1>메인 페이지</h1>
 <h3>${name }님의 전화번호부</h3>
 <div class="logout">
@@ -114,7 +115,7 @@ function myFunction() {
 <div class="add">
 <a href="InsertServlet">연락처 추가</a><br/><br/>
 </div>
-	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="검색할 이름을 입력하세요" style="color: #00ff00;" size="20">
+	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="이름 검색창" size="20">
 <div class="tableform">
 	<div class="table">	
 	<table id="myTable" >
@@ -126,13 +127,13 @@ function myFunction() {
 				<td>${person.name }</td>
 				<td>${person.phone1} - ${person.phone2 } - ${person.phone3 }</td>
 				<td>${person.gpnm }</td>
-				<td><a href="UpdatePbkServlet?num=${person.num }">수정</a></td>
-				<td><a href="DeletePbkServlet?num=${person.num }">삭제</a></td>
+				<td><a href="UpdatePbkServlet?num=${person.num }">수정하기</a></td>
+				<td><a href="DeletePbkServlet?num=${person.num }">삭제하기</a></td>
 			</tr>
 		</c:forEach>
 	</table>
 	</div>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </body>
 </html>

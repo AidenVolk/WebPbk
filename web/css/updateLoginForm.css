@@ -1,44 +1,25 @@
 @charset "UTF-8";
 
+body{
+	background: black;
+	color: #00ff00;
+}
 .updateloginbackground{
+	background: black;
 	position: absolute;
 	z-index: 100;
 }
-/* body{
-	color: #00ff00;
-}
-h3{
-	position: absolute;
-	z-index: 150;
-	top: 30%;
-	left: 35%;
-	color: #00ff00;
-	font-size: 3em;
-	font-weight: 900
-}
-
-
-input::-ms-input-placeholder { color: #00Ff00; }
-input::-webkit-input-placeholder { color: #00ff00; }
-input::-moz-placeholder { color: #00ff00; }
-
-input{
-	position: absolute;
-	top: 50%;
-	left: 43%;
-	z-index: 150;
-	background-color: transparent;
-	color: #00ff00;
-	border: none;
-	size: auto;
-}
- */
  form{
  	position: absolute;
  	z-index: 150;
  	top: 40%;
  	left: 40%;
  	color: #00ff00;
+ 	background-color: transparent;
+ 	cellspacing: 10;
+ }
+ body{
+ 	background-color: transparent;
  }
  h3{
 	position: absolute;
@@ -52,18 +33,37 @@ input{
 .updatebtn{
 	position: absolute;
 	z-index: 150;
-	top:80%;
+	top:90%;
 	left: 25%;
 }
+nput::-ms-input-placeholder { color: #00Ff00;  }
+input::-webkit-input-placeholder { color: #00ff00; }
+input::-moz-placeholder { color: #00ff00; }
 
 input{
 	background-color: transparent;
-	border: none;
 	text-align: center;
 }
-.radio {
-  display: inline-flex;
-  align-items: center;
+placeholder{
+	color: #00ff00;
+	}
+select{
+	background-color: transparent;
+	color: #00ff00;
+	text-align: center;
+	top: 67%;
+	left: 50%;
+}
+select.option{
+	background-color: transparent;
+	
+}
+
+.r{
+	position: absolute;
+	top: 67;
+	left: 0%;
+	
 }
 
 input[type='radio'],
@@ -73,13 +73,11 @@ input[type='radio']:checked {
   height: 0.9rem;
   border-radius: 100%;
   margin-right: 0.1rem;
+  background-color: #00ff00;
 }
 
-input[type='radio'] {
-  background-color: #fff5;
-  border: 2px solid #00ff00;
-}
+
 input[type='radio']:checked {
-  background-color: #00ff00;
+  background-color: #fff5;
 }
  
