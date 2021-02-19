@@ -83,11 +83,11 @@
 	<div class="loginform">
 		<form action="LoginServlet" method="post">
 			<div class=loginid>
-			<input type="text" name="id" placeholder="아이디 입력" style="color: #00ff00; border: none; background-color: transparent;"><br/>
+			<input type="text" name="id" placeholder="아이디 입력"><br/>
 			</div>
-			<input type="password" name="pw" placeholder="비밀번호 입력" style="color: #00ff00; border: none; background-color: transparent;"><br/>
+			<input type="password" name="pw" placeholder="비밀번호 입력"><br/>
 			<div class=loginbtn>
-			<button type="submit" style=" color: #00ff00; border: none; background-color: transparent;">로그인</button>
+			<button type="submit">로그인</button>
 			</div>
 		</form>
 		<div class="joinbtn">

@@ -7,7 +7,7 @@
 h1{
 	position: absolute;
 	top: 20%;
-	left: 46.5%;
+	left: 47.5%;
  	color: #fff5;
 	/* color: #0f0; */
 	text-transform: upppercase;
@@ -21,7 +21,7 @@ h1{
 h3{
 	position: absolute;
 	top: 30%;
-	left: 35%;
+	left: 36%;
 	color: #00ff00;
 	font-size: 3em;
 	font-weight: 900;
@@ -90,6 +90,7 @@ input{
 	background-color: transparent;
 	color: #00ff00;
 	border: none;
+	text-align: center;
 }
 
 

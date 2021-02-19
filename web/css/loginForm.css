@@ -15,7 +15,7 @@ body{
 h2{
 	position: absolute;
 	top: 20%;
-	left: 50%;
+	left: 47%;
  	color: #fff5;
 	/* color: #0f0; */
 	text-transform: upppercase;
@@ -23,16 +23,14 @@ h2{
 	transform: translateX(-50%);
 	font-weight: 900;
 	z-index: 150;
-	magin-left: auto;
-	magin-right: auto;
 }
 .loginform{
 	position : absolute;
 	width: 300px;
 	height: 200px;
-	text-alin: center;
+	/* text-alin: center; */
 	top: 40%;
-	left: 45%;
+	left: 43%;
 	margin: auto;
 	background-color: transparent;
 }
@@ -44,13 +42,17 @@ input::-webkit-input-placeholder { color: #00ff00; }
 input::-moz-placeholder { color: #00ff00; }
 
  input{
-	margin-left:auto;
-	margin-right:auto;
 	text-align : center;
 	size:auto;
+	background-color: transparent;
+	color: #00ff00;
+	border: none;
 }
 
 button{
+	background-color: transparent;
+	color: #00ff00;
+	border: none;
 	text-align : center;
 	margin-left: 20%;
 	margin-right: auto;

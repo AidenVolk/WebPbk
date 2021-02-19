@@ -40,6 +40,7 @@ public class UpdateLoginServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
 		
 		String name		 = request.getParameter("name");
@@ -49,12 +50,13 @@ public class UpdateLoginServlet extends HttpServlet {
 		String phone3	 = request.getParameter("phone3");
 		String gender	 = request.getParameter("gender");
 		
-		if(name.equals("") || phone1.equals("") || phone2.equals("")
-		                   || phone3.equals("") || gender.equals("")) {
+		if(name.equals("") || phone1.equals("") || phone2.equals("") ||
+		   pw.equals("")   || phone3.equals("") || gender.equals("")) {
 			doGet(request,response);
 		}else {
 			HttpSession session = request.getSession();
 			String id = (String)session.getAttribute("id");
+			
 			WebPbkService wService = new WebPbkService();
 			WebPbkVO check = wService.login(id,pw);
 			
@@ -70,6 +72,7 @@ public class UpdateLoginServlet extends HttpServlet {
 				person.setGender(gender);
 				
 				wService.updateLogin(person);
+				request.setAttribute("name", name);
 				response.sendRedirect("MainServlet");
 			}else {
 				doGet(request,response);

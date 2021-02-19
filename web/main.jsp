@@ -103,7 +103,7 @@ function myFunction() {
 		</script>
 	</span>
 	</div>
-<h1>회원관리 페이지</h1>
+<h1>메인 페이지</h1>
 <h3>${name }님의 전화번호부</h3>
 <div class="logout">
 <a href="LogoutServlet">로그아웃</a><br/><br/>
